@@ -11,6 +11,8 @@ return {
 				sidebars = "dark",
 				floats = "dark",
 			},
+            on_colors = function(colors) end,
+            on_highlights = function(colors) end,
 		})
 	end
 }
