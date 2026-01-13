@@ -14,6 +14,8 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false -- soft wrapping
 
+vim.opt.signcolumn = "yes"
+
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
@@ -28,7 +30,7 @@ vim.opt.termguicolors = true
 
 vim.opt.updatetime = 50
 
---vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "100"
 
 --vimtex stuff
 vim.g.vimtex_view_method = "zathura"

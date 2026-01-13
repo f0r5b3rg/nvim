@@ -13,6 +13,11 @@ return {
     },
     config = function()
         vim.lsp.config("lua_ls", {})
+        vim.lsp.config("jdtls", {})
+        vim.lsp.config("clangd", {
+            cmd = {"clangd",  "--clang-tidy" },
+        })
+
         vim.lsp.enable({"lua_ls"})
     end
 }
