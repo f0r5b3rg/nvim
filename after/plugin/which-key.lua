@@ -1,7 +1,7 @@
 local wk = require("which-key")
 
 wk.add({
-    { "<leader>x",  group = "diagnostics" },
+    { "leader>x",  group = "diagnostics" },
     { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",          desc = "Toggle diagnostics" },
     { "<leader>xw", "<cmd>Trouble workspace_diagnostics toggle<cr>", desc = "Workspace diagnostics" },
     { "<leader>xd", "<cmd>Trouble document_diagnostics toggle<cr>",  desc = "Document diagnostics" },

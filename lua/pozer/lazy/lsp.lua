@@ -1,23 +1,41 @@
 return {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-        "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
-        opts = {
-            library = {
-                -- See the configuration section for more details
-                -- Load luvit types when the `vim.uv` word is found
-                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-            },
-        },
-    },
-    config = function()
-        vim.lsp.config("lua_ls", {})
-        vim.lsp.config("jdtls", {})
-        vim.lsp.config("clangd", {
-            cmd = {"clangd",  "--clang-tidy" },
-        })
+    {
+        "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile" },
+        config = function()
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-        vim.lsp.enable({"lua_ls"})
-    end
+            vim.lsp.config("lua_ls", {
+                capabilities = capabilities,
+                settings = {
+                    Lua = {
+                        diagnostics = { globals = { "vim" } },
+                    },
+                },
+            })
+
+            vim.lsp.config("clangd", {
+                capabilities = capabilities,
+                cmd = { "clangd", "--clang-tidy" },
+            })
+
+            vim.lsp.config("pyright", {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.enable({
+                "lua_ls",
+                "clangd",
+                "pyright",
+            })
+        end,
+    },
+    -- Very special cases, e.g. Java:
+    {
+        'nvim-java/nvim-java',
+        config = function()
+            require('java').setup()
+            vim.lsp.enable('jdtls')
+        end,
+    }
 }

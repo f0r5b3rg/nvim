@@ -2,8 +2,8 @@ vim.cmd.colorscheme("tokyonight")
 
 vim.opt.clipboard = 'unnamedplus' -- system clipboard for yank
 
-vim.opt.nu = true -- line numbers
-vim.opt.relativenumber = true -- relative line numbers
+vim.opt.nu = true                 -- line numbers
+vim.opt.relativenumber = true     -- relative line numbers
 
 -- 2 space tab size
 vim.opt.tabstop = 4
@@ -30,11 +30,13 @@ vim.opt.termguicolors = true
 
 vim.opt.updatetime = 50
 
+vim.lsp.inlay_hint.enable(true)
+
 -- vim.opt.colorcolumn = "100"
 
 --vimtex stuff
 vim.g.vimtex_view_method = "zathura"
 vim.g.vimtex_compiler_latexmk = {
-  out_dir = "build",
-  options = { "-pdf", "-interaction=nonstopmode", "-synctex=1" }
+    out_dir = "build",
+    options = { "-pdf", "-interaction=nonstopmode", "-synctex=1" }
 }
