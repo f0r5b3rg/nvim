@@ -4,13 +4,8 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 -- Space + ll - compile latex
 vim.keymap.set("n", "<leader>ll", "<cmd>VimtexCompile<return>")
 
--- Space + cc - compile C
-vim.keymap.set("n", "<leader>cc", function()
-    local file = vim.fn.expand("%")
-    local output = vim.fn.expand("%:r")
-    local cmd = string.format("gcc -Wall -Wextra -std=c17 %s -o %s", file, output)
-    vim.cmd("make! " .. cmd)
-end, { desc = "Compile current C file" })
+-- Space + r - run Rapid for compilation
+vim.keymap.set('n', '<leader>r', '<cmd>Rapid<CR>')
 
 -- Space + tm -- open current directory in terminal
 --
