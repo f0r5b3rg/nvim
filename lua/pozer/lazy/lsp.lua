@@ -30,12 +30,4 @@ return {
             })
         end,
     },
-    -- Very special cases, e.g. Java:
-    {
-        'nvim-java/nvim-java',
-        config = function()
-            require('java').setup()
-            vim.lsp.enable('jdtls')
-        end,
-    }
 }

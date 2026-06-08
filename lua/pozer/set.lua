@@ -32,8 +32,6 @@ vim.opt.updatetime = 50
 
 vim.lsp.inlay_hint.enable(true)
 
--- vim.opt.colorcolumn = "100"
-
 --vimtex stuff
 vim.g.vimtex_view_method = "zathura"
 vim.g.vimtex_compiler_latexmk = {
